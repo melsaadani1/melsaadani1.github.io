@@ -1,3 +1,4 @@
+import {loadBinary,validateDataset} from './access-data.js?v=1.6.2';
 import {makeRoadLayer,nearestRoad} from './access-map.js';
 import {buildPlaceIndex,searchPlaces,snapPlace} from './access-places.js';
 
@@ -72,19 +73,21 @@ export class AccessibilityLab{
 
    const get=async file=>{const r=await fetch(new URL(file,DATA),{cache:'no-cache'});if(!r.ok)throw Error('Could not load '+file);return r;};
 
-   const binary=async file=>{if('DecompressionStream' in window){const r=await get(file+'.gz'),packed=await r.arrayBuffer(),magic=new Uint8Array(packed,0,Math.min(2,packed.byteLength));return magic[0]===31&&magic[1]===139?new Response(new Blob([packed]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():packed;}return (await get(file)).arrayBuffer();};
+   const binary=file=>loadBinary(new URL(file,DATA));
 
    const [manifest,names,examples,nodes,edges,depth,travel,places]=await Promise.all([(await get('manifest.json')).json(),(await get('names.json')).json(),(await get('examples.json')).json(),binary('nodes.f64'),binary('edges.u32'),binary('depth-mm.u16'),binary('travel-seconds.f32'),(await get('places.json')).json()]);
 
-   Object.assign(this,{manifest,names,examples,places,nodes:new Float64Array(nodes),edges:new Uint32Array(edges),depth:new Uint16Array(depth)});
+   const arrays={nodes:new Float64Array(nodes),edges:new Uint32Array(edges),depth:new Uint16Array(depth),travel:new Float32Array(travel)};
+   validateDataset(manifest,arrays,names);
+   Object.assign(this,{manifest,names,examples,places,nodes:arrays.nodes,edges:arrays.edges,depth:arrays.depth});
 
    this.world=new Float64Array(this.nodes.length);for(let i=0;i<this.nodes.length;i+=2){const lat=this.nodes[i+1]*Math.PI/180;this.world[i]=(this.nodes[i]+180)/360;this.world[i+1]=(1-Math.log(Math.tan(lat)+1/Math.cos(lat))/Math.PI)/2;}
 
    if(!window.L)throw Error('The map library did not load.');this.initMap();
 
-   this.worker=new Worker(new URL('./access-worker.js',import.meta.url),{type:'module'});this.worker.onmessage=e=>this.receive(e.data);this.worker.onerror=()=>this.error('Route calculations could not start. Reload the page to try again.');
+   this.worker=new Worker(new URL('./access-worker.js?v=1.6.2',import.meta.url),{type:'module'});this.worker.onmessage=e=>this.receive(e.data);this.worker.onerror=()=>this.error('Route calculations could not start. Reload the page to try again.');
 
-   this.worker.postMessage({type:'init',nodeCount:manifest.nodeCount,edges:this.edges,travel:new Float32Array(travel)});
+   this.worker.postMessage({type:'init',nodeCount:manifest.nodeCount,edges:this.edges,travel:arrays.travel},[arrays.travel.buffer]);
 
    this.nameEdge=new Map();for(let i=0;i<this.edges.length/10;i++){const name=this.names[this.edges[i*10+4]];if(!this.nameEdge.has(name))this.nameEdge.set(name,i);}
 
@@ -104,7 +107,7 @@ export class AccessibilityLab{
 
  }
 
- error(message){this.$('access-map-loading').hidden=false;this.$('access-map-loading').innerHTML='<strong>Could not finish loading.</strong><span>'+esc(message)+'</span><span>The site must be served over HTTP, including on GitHub Pages.</span>';}
+ error(message){this.stop();this.workerReady=false;this.worker?.terminate();this.$('access-play').disabled=true;this.$('access-map-loading').hidden=false;this.$('access-map-loading').innerHTML='<strong>Could not finish loading.</strong><span>'+esc(message)+'</span><span>Reload the page to try again.</span>';}
 
  initMap(){const L=window.L;
 
@@ -152,12 +155,7 @@ export class AccessibilityLab{
  async loadAddresses(){
   if(this.addressesReady)return;
   if(!this.addressPromise)this.addressPromise=(async()=>{
-   let response;
-   if('DecompressionStream' in window){
-    const r=await fetch(new URL('addresses.json.gz',DATA));if(!r.ok)throw Error('Address index unavailable');
-    const packed=await r.arrayBuffer(),magic=new Uint8Array(packed,0,Math.min(2,packed.byteLength));
-    response=magic[0]===31&&magic[1]===139?new Response(new Blob([packed]).stream().pipeThrough(new DecompressionStream('gzip'))):new Response(packed);
-   }else{response=await fetch(new URL('addresses.json',DATA));if(!response.ok)throw Error('Address index unavailable');}
+   const response=new Response(await loadBinary(new URL('addresses.json',DATA)));
    this.placeIndex=buildPlaceIndex(this.places,await response.json());this.addressesReady=true;
   })().catch(error=>{this.addressPromise=null;throw error;});
   return this.addressPromise;
@@ -192,13 +190,13 @@ export class AccessibilityLab{
 
  example(index){if(!this.map)return;const ex=this.examples[index];this.a={...ex.a};this.b={...ex.b};this.results=this.baseline=null;this.setPick(null);this.placeMarker('a');this.placeMarker('b');this.setFrame(0);this.fit();this.analyze();this.$('access-example').value=String(index);}
 
- clear(){for(const key of ['a','b']){this.resetSearch(key);this.$('access-preset-'+key).value='';this.$('access-'+key+'-info').hidden=true;this.$('access-'+key+'-note').hidden=true;this.$('access-search-details-'+key).open=false;}this.stop();this.id++;this.a=this.b=null;this.results=this.baseline=null;this.reachable=null;Object.values(this.markers).forEach(m=>m.remove());this.markers={};this.$('access-a-label').textContent='Click a road on the map';this.$('access-b-label').textContent='Then choose where to go';this.$('access-example').value='';this.setPick('a');this.$('access-outage-summary').textContent='Your trip’s connection windows will appear here.';this.$('access-progress').textContent='Roads reopen below 6 in; repairs are not modeled here.';this.render();}
+ clear(){for(const key of ['a','b']){this.resetSearch(key);this.$('access-preset-'+key).value='';this.$('access-'+key+'-info').hidden=true;this.$('access-'+key+'-note').hidden=true;this.$('access-search-details-'+key).open=false;}this.stop();this.id++;this.worker?.postMessage({type:'cancel'});this.a=this.b=null;this.results=this.baseline=null;this.reachable=null;Object.values(this.markers).forEach(m=>m.remove());this.markers={};this.$('access-a-label').textContent='Click a road on the map';this.$('access-b-label').textContent='Then choose where to go';this.$('access-example').value='';this.setPick('a');this.$('access-outage-summary').textContent='Your trip’s connection windows will appear here.';this.$('access-progress').textContent='Roads reopen below 6 in; repairs are not modeled here.';this.render();}
 
  analyze(){if(!this.a||!this.b||!this.workerReady)return;this.stop();this.id++;this.results=this.baseline=null;this.reachable=null;this.$('access-progress').textContent='Checking all 19 flood snapshots…';this.$('access-outage-summary').textContent='Checking when the route disappears and returns…';this.render();this.$('access-state-title').textContent='Tracing your trip…';this.$('access-state-detail').textContent='Finding the fastest route at each saved water level.';this.worker.postMessage({type:'analyze',id:this.id,a:this.a,b:this.b,strict:this.strict,hours:this.manifest.hours});}
 
  receive(data){
 
-  if(data.type==='ready'){this.workerReady=true;this.analyze();return;}if(data.id!==this.id)return;
+  if(data.type==='ready'){this.workerReady=true;this.analyze();return;}if(data.type==='error'&&data.initialization){this.error(data.message);return;}if(data.id!==this.id)return;
 
   if(data.type==='progress'){this.$('access-progress').textContent=`Checking snapshot ${data.done} / ${data.total}…`;return;}
 
@@ -206,7 +204,7 @@ export class AccessibilityLab{
 
   if(data.type==='reach'&&data.frame===this.frame){this.reachable=data.reachable;this.roadLayer.redraw();this.$('access-reach-key').hidden=!data.reachable.some(Boolean);}
 
-  if(data.type==='error'){this.$('access-state-title').textContent='Route calculation failed';this.$('access-state-detail').textContent=data.message;}
+  if(data.type==='error'){this.$('access-state-title').textContent='Route calculation failed';this.$('access-state-detail').textContent=data.message;this.$('access-map-message').textContent='Route calculation failed. Choose the points again.';this.$('access-progress').textContent='Could not check this trip.';this.$('access-outage-summary').textContent='Choose the points again to retry.';}
 
  }
 
@@ -226,7 +224,7 @@ export class AccessibilityLab{
 
   this.host.querySelectorAll('[data-access-frame]').forEach(b=>{const i=+b.dataset.accessFrame,result=this.results?.[i];b.setAttribute('aria-pressed',i===this.frame);b.dataset.state=result?(result.connected?'connected':'cutoff'):'waiting';b.title=`Hour ${i*4}: `+(result?(result.connected?minutes(result.seconds)+' min':'no modeled route'):'choose a trip');b.setAttribute('aria-label',b.title);});
 
-  if(!r){$('access-state-kicker').textContent='02 / CHECK THE CONNECTION';$('access-result').dataset.state='waiting';$('access-state-title').textContent='Where are we going?';$('access-state-detail').textContent='Set A and B to find a route at every saved hour.';$('access-minutes').textContent='—';$('access-extra').textContent='—';$('access-distance').textContent='Free-flow estimate · no traffic or signals';return;}
+  if(!r){$('access-map-message').textContent=this.a&&this.b?'Checking your new trip…':'Choose two points on the roads.';$('access-state-kicker').textContent='02 / CHECK THE CONNECTION';$('access-result').dataset.state='waiting';$('access-state-title').textContent='Where are we going?';$('access-state-detail').textContent='Set A and B to find a route at every saved hour.';$('access-minutes').textContent='—';$('access-extra').textContent='—';$('access-distance').textContent='Free-flow estimate · no traffic or signals';return;}
 
   const unverified=r.connected&&(r.structures||r.elevationMissing),delta=r.connected&&base.connected?r.seconds-base.seconds:0,detour=delta>30,aWet=!!(this.edges[this.a.edge*10+7]&(1<<this.frame)),bWet=!!(this.edges[this.b.edge*10+7]&(1<<this.frame));
 

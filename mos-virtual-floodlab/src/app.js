@@ -2,7 +2,7 @@ import {ExperimentGate} from './experiment-gate.js?v=1.6.0';
 import {BUILDINGS,FT,createInventory,fractionAt,evaluate,money} from './data.js';
 import {FloodScene} from './scene.js';
 import {RoadLab} from './road-app.js';
-import {AccessibilityLab} from './access-app.js?v=1.5.6';
+import {AccessibilityLab} from './access-app.js?v=1.6.2';
 let accessibilityLab;
 
 const $=id=>document.getElementById(id);

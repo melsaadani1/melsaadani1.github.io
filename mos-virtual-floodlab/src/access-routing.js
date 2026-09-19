@@ -16,6 +16,10 @@ export class RoutingGraph{
 
  constructor(nodeCount,edges,travel){
 
+  if(!Number.isSafeInteger(nodeCount)||nodeCount<1||!(edges instanceof Uint32Array)||edges.length%STRIDE||!(travel instanceof Float32Array)||travel.length!==edges.length/STRIDE*2)throw Error('The road network files do not match. Reload the page to try again.');
+  for(let j=0;j<edges.length;j+=STRIDE)if(edges[j]>=nodeCount||edges[j+1]>=nodeCount||edges[j+3]>2)throw Error('The road network contains an invalid connection.');
+  for(const seconds of travel)if(!Number.isFinite(seconds)||seconds<0)throw Error('The road network contains an invalid travel time.');
+
   this.n=nodeCount;this.edges=edges;this.travel=travel;this.m=edges.length/STRIDE;
 
   const counts=new Uint32Array(nodeCount);let arcs=0;
@@ -53,6 +57,9 @@ export class RoutingGraph{
  }
 
  solve(a,b,frame,strict=false,includeReachable=false){
+
+  for(const point of [a,b])if(!point||!Number.isInteger(point.edge)||point.edge<0||point.edge>=this.m||!Number.isFinite(point.t)||point.t<0||point.t>1)throw Error('Choose two valid points on the road network.');
+  if(!Number.isInteger(frame)||frame< -1||frame>31)throw Error('Choose a valid flood snapshot.');
 
   const e=this.edges,dist=this.dist,parent=this.parent,via=this.via;dist.fill(Infinity);parent.fill(-1);via.fill(-1);
 
@@ -139,4 +146,3 @@ export function outageWindows(results,hours){
  return windows;
 
 }
-

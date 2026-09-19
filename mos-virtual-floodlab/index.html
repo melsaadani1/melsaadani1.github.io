@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xAtMlUiJe37621sVZN7FuCORWiODFlAt4m+/AXDdLiQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Welcome to Mo’s Virtual FloodLab. Choose an experiment and explore how flooding turns into economic losses, one what-if at a time.">
   <meta name="theme-color" content="#101e27"><title>Mo’s Virtual FloodLab</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101e27'/%3E%3Ctext x='12' y='46' fill='%23b1f4ce' font-size='43' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E">
@@ -55,6 +57,6 @@
   <dialog id="lesson" aria-labelledby="lesson-title"><div class="dialog-header"><span class="eyebrow">GUIDED EXPERIMENT <span id="lesson-counter">01 / 04</span></span><button class="close-dialog" aria-label="Close experiment">×</button></div><div class="lesson-number" id="lesson-number">01</div><h2 id="lesson-title"></h2><p id="lesson-text"></p><ol id="lesson-steps"></ol><div class="lesson-takeaway"><strong>What to notice</strong><p id="lesson-takeaway"></p></div><div class="lesson-actions"><button id="lesson-apply" class="primary-button">Set up this experiment ↗</button><button id="lesson-next" class="small-button">Next experiment →</button></div></dialog>
   <noscript>This tutorial needs JavaScript to display the building and calculate damage.</noscript>
   <script src="./vendor/leaflet/leaflet.js"></script>
-  <script type="module" src="./src/app.js?v=1.6.0"></script>
+  <script type="module" src="./src/app.js?v=1.6.2"></script>
 </body>
 </html>
