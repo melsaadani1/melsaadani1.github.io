@@ -493,6 +493,92 @@ h3 {
   max-width: 1100px;
 }
 
+.teaching {
+  scroll-margin-top: 90px;
+  background: linear-gradient(135deg, #eef5f3, var(--paper) 70%);
+}
+
+.teaching .section-heading > p:last-child {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.course-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.course-copy {
+  max-width: 710px;
+}
+
+.course-copy h3 {
+  font-family: Lora, Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.course-copy > p:not(.eyebrow) {
+  margin: 16px 0 22px;
+  color: var(--muted);
+}
+
+.course-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-topics li {
+  padding: 5px 10px;
+  border: 1px solid #d9e8e4;
+  border-radius: 4px;
+  color: var(--teal);
+  background: #f3f8f6;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.course-action {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.course-button {
+  justify-content: space-between;
+  gap: 38px;
+  min-height: 54px;
+  padding: 14px 22px;
+}
+
+.course-button:hover {
+  background: #0f555b;
+}
+
+.course-button:focus-visible,
+nav a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+
+.course-action p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 .contact {
   display: grid;
   grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
@@ -528,6 +614,24 @@ footer {
 }
 
 @media (max-width: 640px) {
+  .teaching {
+    scroll-margin-top: 160px;
+  }
+
+  .course-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .course-action {
+    width: 100%;
+  }
+
+  .course-button {
+    width: 100%;
+  }
+
   .site-header {
     align-items: flex-start;
     flex-direction: column;

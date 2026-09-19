@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Lose the route, then reconnect",
+    "description": "A route returns after the flood peak, with a longer travel time.",
+    "a": {
+      "edge": 149929,
+      "t": 0.5,
+      "lat": 30.199978897324108,
+      "lon": -92.02996643567408,
+      "name": "Lydia Lane"
+    },
+    "b": {
+      "edge": 290515,
+      "t": 0.5,
+      "lat": 30.245068594720756,
+      "lon": -92.04484250906296,
+      "name": "Service"
+    }
+  },
+  {
+    "title": "Cut off beyond hour 72",
+    "description": "See a trip that still has no modeled route at the last saved snapshot.",
+    "a": {
+      "edge": 149929,
+      "t": 0.5,
+      "lat": 30.199978897324108,
+      "lon": -92.02996643567408,
+      "name": "Lydia Lane"
+    },
+    "b": {
+      "edge": 71005,
+      "t": 0.5,
+      "lat": 30.175441951977525,
+      "lon": -92.01012453950418,
+      "name": "Kings Cove Circle"
+    }
+  }
+]

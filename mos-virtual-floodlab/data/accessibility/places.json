@@ -1,0 +1,259 @@
+[
+  {
+    "id": "general",
+    "name": "Ochsner Lafayette General Medical Center",
+    "kind": "Hospital",
+    "address": "1214 COOLIDGE ST",
+    "city": "LAFAYETTE",
+    "zip": "70503",
+    "lon": -92.019471,
+    "lat": 30.2027145,
+    "aliases": [
+      "hospital",
+      "emergency room",
+      "lafayette general"
+    ],
+    "source": "https://www.ochsner.org/locations/ochsner-lafayette-general-medical-center/",
+    "lcgObjectId": 22510,
+    "point": {
+      "edge": 400465,
+      "t": 1,
+      "lon": -92.0186409,
+      "lat": 30.202354499999988,
+      "snapMeters": 89.35355485829366
+    },
+    "roadName": "Coolidge Street"
+  },
+  {
+    "id": "university",
+    "name": "Ochsner University Hospital & Clinics",
+    "kind": "Hospital",
+    "address": "2390 W CONGRESS ST",
+    "city": "LAFAYETTE",
+    "zip": "70506",
+    "lon": -92.046429,
+    "lat": 30.217101,
+    "aliases": [
+      "hospital",
+      "university medical center",
+      "UHC"
+    ],
+    "source": "https://www.ochsner.org/locations/ochsner-university-hospital-and-clinics/",
+    "lcgObjectId": 15092,
+    "point": {
+      "edge": 245862,
+      "t": 0.006669087190469041,
+      "lon": -92.04539412558127,
+      "lat": 30.215970408103853,
+      "snapMeters": 160.46845869521908
+    },
+    "roadName": "West Congress Street"
+  },
+  {
+    "id": "lafayette-high",
+    "name": "Lafayette High School",
+    "kind": "School",
+    "address": "3000 W CONGRESS ST",
+    "city": "LAFAYETTE",
+    "zip": "70506",
+    "lon": -92.0582786,
+    "lat": 30.2075264,
+    "aliases": [
+      "school",
+      "high school",
+      "LHS"
+    ],
+    "source": "https://www.lpssonline.com/lafayettehigh",
+    "lcgObjectId": 19042,
+    "point": {
+      "edge": 306498,
+      "t": 0.3956389679109879,
+      "lon": -92.0574950357032,
+      "lat": 30.206637460078575,
+      "snapMeters": 124.39799773148525
+    },
+    "roadName": "West Congress Street"
+  },
+  {
+    "id": "northside-high",
+    "name": "Northside High School",
+    "kind": "School",
+    "address": "301 DUNAND ST",
+    "city": "LAFAYETTE",
+    "zip": "70501",
+    "lon": -92.002434,
+    "lat": 30.2512218,
+    "aliases": [
+      "school",
+      "high school",
+      "NHS"
+    ],
+    "source": "https://www.lpssonline.com/schools",
+    "lcgObjectId": 47757,
+    "point": {
+      "edge": 117916,
+      "t": 0.4821342094162946,
+      "lon": -92.00255355789078,
+      "lat": 30.250394300738353,
+      "snapMeters": 92.83188189877553
+    },
+    "roadName": "Dunand Street"
+  },
+  {
+    "id": "heymann",
+    "name": "Heymann Center",
+    "kind": "Shelter scenario",
+    "address": "1373 S COLLEGE RD",
+    "city": "LAFAYETTE",
+    "zip": "70503",
+    "lon": -92.0208176,
+    "lat": 30.2018878,
+    "aliases": [
+      "shelter",
+      "convention center",
+      "performing arts"
+    ],
+    "source": "https://www.heymanncenter.com/",
+    "lcgObjectId": 819,
+    "note": "Shelter scenario: this facility has served an emergency shelter role. This label does not indicate an open shelter.",
+    "shelterSource": "https://www.lafayettela.gov/media/5ddpuqwn/2016-annual-report.pdf",
+    "point": {
+      "edge": 271549,
+      "t": 0.13101405533679994,
+      "lon": -92.02036944661391,
+      "lat": 30.201045946078292,
+      "snapMeters": 103.15796835529282
+    },
+    "roadName": "South College Road"
+  },
+  {
+    "id": "walmart",
+    "name": "Walmart · Ambassador Caffery",
+    "kind": "Shopping",
+    "address": "3142 AMBASSADOR CAFFERY PKWY",
+    "city": "LAFAYETTE",
+    "zip": "70506",
+    "lon": -92.0785232,
+    "lat": 30.1872877,
+    "aliases": [
+      "walmart",
+      "supercenter",
+      "shopping",
+      "groceries"
+    ],
+    "source": "https://www.walmart.com/store/531-lafayette-la",
+    "lcgObjectId": 4017,
+    "point": {
+      "edge": 352378,
+      "t": 0.19552467667036824,
+      "lon": -92.07501738558055,
+      "lat": 30.18727642468031,
+      "snapMeters": 337.3440427265629
+    },
+    "roadName": "Ambassador Caffery Parkway"
+  },
+  {
+    "id": "costco",
+    "name": "Costco Lafayette",
+    "kind": "Shopping",
+    "address": "201 MEADOW FARM RD",
+    "city": "LAFAYETTE",
+    "zip": "70508",
+    "lon": -92.0423551,
+    "lat": 30.1564079,
+    "aliases": [
+      "costco",
+      "shopping",
+      "groceries"
+    ],
+    "source": "https://www.costco.com/w/-/la/lafayette/1201",
+    "lcgObjectId": 102361,
+    "point": {
+      "edge": 272211,
+      "t": 0.5842361239283312,
+      "lon": -92.04354123749954,
+      "lat": 30.155368541979804,
+      "snapMeters": 162.54722810243598
+    },
+    "roadName": "Meadow Farm Road"
+  },
+  {
+    "id": "airport",
+    "name": "Lafayette Regional Airport",
+    "kind": "Transport",
+    "address": "200 TERMINAL DR",
+    "city": "LAFAYETTE",
+    "zip": "70508",
+    "lon": -91.9914441,
+    "lat": 30.209024,
+    "aliases": [
+      "airport",
+      "LFT",
+      "terminal"
+    ],
+    "source": "https://lftairport.com/travelers/parking-transportation/directions/",
+    "lcgObjectId": 111738,
+    "point": {
+      "edge": 355330,
+      "t": 0.9037507287497396,
+      "lon": -91.99173829329405,
+      "lat": 30.209404220796788,
+      "snapMeters": 50.91671498559163
+    },
+    "roadName": "Terminal Drive"
+  },
+  {
+    "id": "library",
+    "name": "Main Library · downtown",
+    "kind": "Community",
+    "address": "301 W CONGRESS ST",
+    "city": "LAFAYETTE",
+    "zip": "70501",
+    "lon": -92.0202535,
+    "lat": 30.2262782,
+    "aliases": [
+      "library",
+      "main library",
+      "downtown"
+    ],
+    "source": "https://www.lafayettela.gov/news/posts/recycle-holiday-lights-at-lcg-drop-off-locations/",
+    "lcgObjectId": 4692,
+    "point": {
+      "edge": 246352,
+      "t": 0.8944140693930647,
+      "lon": -92.01994521242165,
+      "lat": 30.2268031239195,
+      "snapMeters": 65.52770716079903
+    },
+    "roadName": "West Congress Street"
+  },
+  {
+    "id": "i10-east",
+    "name": "I-10 eastbound entrance · from I-49",
+    "kind": "Highway access",
+    "address": "I-49 SOUTH TO I-10 EAST RAMP",
+    "city": "LAFAYETTE",
+    "zip": "",
+    "lon": -92.014547,
+    "lat": 30.25588,
+    "aliases": [
+      "I-10",
+      "interstate 10",
+      "highway",
+      "entrance",
+      "on ramp",
+      "Baton Rouge",
+      "I-49"
+    ],
+    "source": "https://www.openstreetmap.org/way/12658278",
+    "note": "Point on the one-way I-49 south → I-10 east ramp. Routes respect that direction.",
+    "point": {
+      "edge": 27750,
+      "t": 0.4213627241675778,
+      "lon": -92.01455194974562,
+      "lat": 30.255879799880333,
+      "snapMeters": 0.47647085550784835
+    },
+    "roadName": "Motorway Link"
+  }
+]

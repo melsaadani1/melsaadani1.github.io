@@ -1,0 +1,4 @@
+Road data: OpenStreetMap contributors, ODbL 1.0. See LICENSE.txt.
+Address data: Lafayette Consolidated Government, public LCG Address Points.
+https://maps.lafayettela.gov/arcgis/rest/services/BaseLayers/LCG_Address_Points/FeatureServer/0
+Terrain: USGS 3DEP. Flood input: user-supplied research scenario.
