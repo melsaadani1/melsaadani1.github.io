@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "units": "in",
+  "legend": [
+    0,
+    8,
+    16,
+    24,
+    32
+  ],
+  "colorMax": 32,
+  "displayMinInches": 1.0,
+  "defaultMapOpacity": 0.35,
+  "palette": [
+    "#1d3a5e",
+    "#277eb1",
+    "#50bcb7",
+    "#e8d66f",
+    "#ea8f4c",
+    "#bb425e"
+  ],
+  "bounds": [
+    -103.4030016594138,
+    -128.9078997180286,
+    103.40049011462384,
+    128.9999999999991
+  ],
+  "width": 192,
+  "height": 256,
+  "noiseSize": 64,
+  "storms": [
+    {
+      "id": "atlas",
+      "title": "Atlas 14",
+      "kind": "uniform",
+      "source": "Atlas.tif",
+      "sourceCrs": "EPSG:5070",
+      "sourceResolution": [
+        1117.95530038981,
+        1080.942860971787
+      ],
+      "sourceUnits": "inches",
+      "unitConfirmation": "Author, 2026-09-23",
+      "uniformValue": 12.19,
+      "sourceRange": [
+        12.1899995803833,
+        12.1899995803833
+      ],
+      "displayRange": [
+        12.1899995803833,
+        12.1899995803833
+      ],
+      "focus": [
+        -43.0,
+        -35.4
+      ],
+      "coverageFraction": 0.9344,
+      "colorMax": 32.0
+    },
+    {
+      "id": "sst1",
+      "title": "SST 01",
+      "kind": "sst",
+      "source": "r1accum.tiff",
+      "sourceCrs": "EPSG:5070",
+      "sourceResolution": [
+        1009.1835732087818,
+        1006.3165744212569
+      ],
+      "sourceUnits": "inches",
+      "unitConfirmation": "Author, 2026-09-23",
+      "uniformValue": null,
+      "sourceRange": [
+        4.712109088897705,
+        13.642970085144043
+      ],
+      "displayRange": [
+        4.712109088897705,
+        13.642970085144043
+      ],
+      "focus": [
+        -69.492,
+        64.553
+      ],
+      "coverageFraction": 0.9379,
+      "colorMax": 13.642970085144043
+    },
+    {
+      "id": "sst15",
+      "title": "SST 15",
+      "kind": "sst",
+      "source": "r15accum.tiff",
+      "sourceCrs": "EPSG:5070",
+      "sourceResolution": [
+        1009.1835732087818,
+        1006.3165744212569
+      ],
+      "sourceUnits": "inches",
+      "unitConfirmation": "Author, 2026-09-23",
+      "uniformValue": null,
+      "sourceRange": [
+        4.425753116607666,
+        16.43117332458496
+      ],
+      "displayRange": [
+        4.448670387268066,
+        16.43117332458496
+      ],
+      "focus": [
+        -54.278,
+        18.795
+      ],
+      "coverageFraction": 0.9379,
+      "colorMax": 16.43117332458496
+    },
+    {
+      "id": "sst23",
+      "title": "SST 23",
+      "kind": "sst",
+      "source": "r23accum.tiff",
+      "sourceCrs": "EPSG:5070",
+      "sourceResolution": [
+        1009.1835732087818,
+        1006.3165744212569
+      ],
+      "sourceUnits": "inches",
+      "unitConfirmation": "Author, 2026-09-23",
+      "uniformValue": null,
+      "sourceRange": [
+        1.2875252962112427,
+        31.288156509399414
+      ],
+      "displayRange": [
+        1.2875252962112427,
+        29.95172691345215
+      ],
+      "focus": [
+        -47.564,
+        -45.044
+      ],
+      "coverageFraction": 0.9379,
+      "colorMax": 32.0
+    }
+  ],
+  "interpretation": "Total storm accumulation, not rainfall rate or flood depth. Cloud shape and rain motion are illustrative; no temporal sequence is inferred.",
+  "processing": "Source grids reprojected to the world UTM transform. Bilinear interpolation is for visual display, not added spatial resolution. Totals below 1 inch and no-data cells are transparent in every case. The visibility threshold is applied before GPU quantization and does not change numeric totals. Rainfall is a static surface color overlay with 35 percent default opacity, never an elevation or water-depth displacement. The common zero exterior of the three SST inputs is treated as outside coverage; Atlas retains its source footprint and uniform positive value."
+}

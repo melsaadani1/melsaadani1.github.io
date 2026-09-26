@@ -1,0 +1,79 @@
+WEBVTT
+
+00:00:00.538 --> 00:00:08.725
+Engineers use design storms to estimate flooding and building damage. These rainfall scenarios have a specified duration and likelihood.
+
+00:00:09.088 --> 00:00:19.012
+In Louisiana’s Vermilion River Basin, we tested how the distribution of rainfall across the landscape changes which buildings flood and their estimated damage.
+
+00:00:20.350 --> 00:00:28.175
+Conventional flood modeling in the United States commonly uses NOAA Atlas 14 rainfall estimates, applied uniformly across a basin.
+
+00:00:28.624 --> 00:00:37.225
+Here, the Atlas 14 estimate for a 100-year, 24-hour storm is about 310 millimeters after adjustment for basin area.
+
+00:00:37.674 --> 00:00:41.750
+“100-year” means a one-percent chance of being exceeded in any year.
+
+00:00:42.250 --> 00:00:46.812
+Following common practice, we applied the same rainfall total everywhere.
+
+00:00:47.212 --> 00:00:54.799
+Yet real storms vary from place to place, making uniform rainfall over such a large area an unrealistic simplification.
+
+00:00:56.146 --> 00:01:03.746
+To represent rainfall variability, researchers have developed methods such as stochastic storm transposition, or SST.
+
+00:01:04.146 --> 00:01:09.946
+SST repositions observed storms within a region while preserving their spatial rainfall patterns.
+
+00:01:10.333 --> 00:01:19.108
+We simulated fifty SST storms for the same design duration and probability, exploring different placements of heavy rainfall across the basin.
+
+00:01:20.458 --> 00:01:27.208
+We then used the same hydrologic and hydraulic models to calculate runoff and flooding under both rainfall approaches.
+
+00:01:27.596 --> 00:01:32.796
+Around Lafayette and Scott, the blue maps show how maximum flood depths change.
+
+00:01:33.183 --> 00:01:40.620
+Depth-damage relationships translate water depth relative to each building’s first floor into a fraction of its value lost to flooding.
+
+00:01:41.974 --> 00:01:53.024
+To compare the full set of storms, SSTmax combines the greatest flood depth at each location across all fifty SST simulations. It does not describe a single event.
+
+00:01:53.412 --> 00:01:58.712
+These maps show where flooded buildings cluster, with red marking stronger concentrations.
+
+00:01:59.099 --> 00:02:06.486
+Compared with Atlas 14, SSTmax produces stronger clusters around Lafayette, Scott, and Abbeville.
+
+00:02:07.846 --> 00:02:16.408
+Terrain helps explain these patterns. Height Above Nearest Drainage, or HAND, measures how high land sits above the channel it drains to.
+
+00:02:16.870 --> 00:02:25.146
+Here, higher ground borders much of the main river, while many neighborhoods along smaller tributaries occupy intermediate drainage heights.
+
+00:02:26.469 --> 00:02:28.944
+This chart groups flooded buildings by HAND.
+
+00:02:29.344 --> 00:02:36.319
+Gray bars show buildings flooded under Atlas 14; red bars show additional buildings flooded only under SST.
+
+00:02:36.706 --> 00:02:40.732
+Each curve shows the percentage of its group below a given drainage height.
+
+00:02:41.132 --> 00:02:50.807
+The highlighted ten-to-twenty-meter interval accounts for about sixty percent of the area between these curves. The exposure patterns differ most at these intermediate drainage heights.
+
+00:02:52.150 --> 00:03:01.475
+Across the fifty simulations, 11,518 buildings flooded at least once under SST but stayed dry under Atlas 14.
+
+00:03:01.874 --> 00:03:12.287
+For this additional group, potential structural losses totaled about 110 million dollars. These estimates combine simulated outcomes rather than describe one observed flood.
+
+00:03:13.629 --> 00:03:24.254
+A uniform design storm can produce large basin-wide loss estimates while overlooking vulnerable neighborhoods. Representing spatial rainfall variability helps reveal those gaps.
+
+00:03:24.654 --> 00:03:31.717
+You can explore the rainfall, flooding, and exposure maps in our interactive companion using the link accompanying this video.

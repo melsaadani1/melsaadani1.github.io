@@ -84,7 +84,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260919" />
+    <link rel="stylesheet" href="styles.css?v=20260926-learning" />
   </head>
   <body>
     <header class="site-header">
@@ -96,7 +96,7 @@
         <a href="#publications">Publications</a>
         <a href="#funding">Funding</a>
         <a href="#presentations">Presentations</a>
-        <a href="#teaching">Teaching</a>
+        <a href="#learning-resources">Learning Resources</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -444,29 +444,46 @@
         </div>
       </section>
 
-      <section id="teaching" class="section teaching" aria-labelledby="teaching-title">
+      <section id="learning-resources" class="section teaching" aria-labelledby="resources-title">
         <div class="section-heading">
           <p class="eyebrow">Explore &amp; Experiment</p>
-          <h2 id="teaching-title">Teaching</h2>
-          <p>Interactive class materials. Choose a course to get started.</p>
+          <h2 id="resources-title">Learning Resources</h2>
+          <p>Explore ideas from the classroom and the research through interactive experiments, maps, and films.</p>
         </div>
-        <article class="course-card" aria-labelledby="course-title">
-          <div class="course-copy">
-            <p class="eyebrow">HIST 430 &middot; Interactive Flood Lab</p>
-            <h3 id="course-title">Mo&rsquo;s Virtual FloodLab</h3>
-            <p>Raise the water. Follow the damage. Find a way through. Explore how floods affect buildings, roads, and the trips that connect a community.</p>
-            <ul class="course-topics" aria-label="Available experiments">
-              <li>Building losses</li>
-              <li>Road damage &amp; recovery</li>
-              <li>Flood &amp; accessibility</li>
-            </ul>
-          </div>
-          <div class="course-action">
-            <a class="button primary course-button" href="./mos-virtual-floodlab/" aria-describedby="course-help">HIST 430 <span aria-hidden="true">&rarr;</span></a>
-            <p id="course-help">Open the class experiments</p>
-          </div>
-        </article>
+        <div class="resource-tabs" role="tablist" aria-label="Learning resources">
+          <button id="classes-tab" role="tab" aria-selected="true" aria-controls="classes">Classes <span>01</span></button>
+          <button id="modules-tab" role="tab" aria-selected="false" aria-controls="interactive-modules" tabindex="-1">Interactive Modules <span>01</span></button>
+        </div>
+        <div id="classes" role="tabpanel" aria-labelledby="classes-tab" tabindex="0">
+          <article class="course-card" aria-labelledby="course-title">
+            <div class="course-copy">
+              <p class="eyebrow">HIST 430 &middot; Interactive Flood Lab</p>
+              <h3 id="course-title">Mo&rsquo;s Virtual FloodLab</h3>
+              <p>Raise the water. Follow the damage. Find a way through. Explore how floods affect buildings, roads, and the trips that connect a community.</p>
+              <ul class="course-topics" aria-label="Available experiments"><li>Building losses</li><li>Road damage &amp; recovery</li><li>Flood &amp; accessibility</li></ul>
+            </div>
+            <div class="course-action">
+              <a class="button primary course-button" href="./mos-virtual-floodlab/" aria-describedby="course-help">HIST 430 <span aria-hidden="true">&rarr;</span></a>
+              <p id="course-help">Open the class experiments</p>
+            </div>
+          </article>
+        </div>
+        <div id="interactive-modules" role="tabpanel" aria-labelledby="modules-tab" tabindex="0" hidden>
+          <article class="course-card research-module" aria-labelledby="module-title">
+            <div class="course-copy">
+              <p class="eyebrow">ElSaadani et al. &middot; NHESS 2026</p>
+              <h3 id="module-title">One watershed. Different design storms.</h3>
+              <p>How does the rainfall pattern change who gets flooded? Follow the Vermilion River Basin study, then explore its rainfall, flood depth, building exposure, and terrain maps.</p>
+              <ul class="course-topics" aria-label="Module contents"><li>Narrated research film</li><li>Interactive 3D watershed</li><li>Study maps</li></ul>
+            </div>
+            <div class="course-action">
+              <a class="button primary course-button" href="./modules/nhess-2026/">Explore the module <span aria-hidden="true">&rarr;</span></a>
+              <p>Watch the story. Explore the evidence.</p>
+            </div>
+          </article>
+        </div>
       </section>
+
 
       <section id="contact" class="contact band">
         <div>
@@ -486,7 +503,7 @@
       <p>&copy; <span id="year"></span> Mohamed ElSaadani.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260926-learning"></script>
   </body>
 </html>
 

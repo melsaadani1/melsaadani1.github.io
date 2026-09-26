@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bounds": [
+    -94.4030016594138,
+    -119.9078997180286,
+    94.40049011462384,
+    119.99999999999909
+  ],
+  "rowOrder": "north-to-south (increasing scene z)",
+  "encoding": "gzip, little-endian uint16; 0=no data, value=(code-1)*unitScale",
+  "processing": "Clipped to supplied basin. Cluster intensity bilinearly resampled to ~169 m. HAND nearest sampled to ~28 m; negative HAND and no-data are transparent, zero remains valid. Display reductions are not analysis grids. HAND vertical units follow the author-supplied meter legend, not the horizontal US-survey-foot CRS. Colors sampled from author legend swatches.",
+  "maps": [
+    {
+      "id": "atlas-clusters",
+      "title": "Atlas 14",
+      "asset": "atlas-clusters.u16.gz",
+      "source": "atlas_cluster.tif",
+      "sourceCrs": "EPSG:4326",
+      "width": 512,
+      "height": 650,
+      "unitScale": 0.0001,
+      "units": "cluster intensity",
+      "kind": "clusters",
+      "breaks": [
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "palette": [
+        "#f7f8f8",
+        "#f5b800",
+        "#f57a00",
+        "#f53d00",
+        "#f50000"
+      ],
+      "labels": [
+        "0\u20130.5",
+        "0.5\u20131",
+        "1\u20131.5",
+        "1.5\u20132",
+        "2\u20132.5"
+      ],
+      "max": 1.9233810901641846,
+      "quantizationMaxError": 5.0000000000050004e-05,
+      "bytes": 191573,
+      "displayResolutionMeters": [
+        168.52075696082488,
+        168.67259723542114
+      ],
+      "meaning": "KDE of inundated-building locations under Atlas 14."
+    },
+    {
+      "id": "sstmax-clusters",
+      "title": "SSTmax \u00b7 50 realizations",
+      "asset": "sstmax-clusters.u16.gz",
+      "source": "sst_cluster.tif",
+      "sourceCrs": "EPSG:4326",
+      "width": 512,
+      "height": 650,
+      "unitScale": 0.0001,
+      "units": "cluster intensity",
+      "kind": "clusters",
+      "breaks": [
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "palette": [
+        "#f7f8f8",
+        "#f5b800",
+        "#f57a00",
+        "#f53d00",
+        "#f50000"
+      ],
+      "labels": [
+        "0\u20130.5",
+        "0.5\u20131",
+        "1\u20131.5",
+        "1.5\u20132",
+        "2\u20132.5"
+      ],
+      "max": 2.374943256378174,
+      "quantizationMaxError": 4.999995231624865e-05,
+      "bytes": 198291,
+      "displayResolutionMeters": [
+        168.52075696082488,
+        168.67259723542114
+      ],
+      "meaning": "KDE of inundated-building locations under the per-cell maximum depth composite of all 50 SST realizations; not a single storm."
+    },
+    {
+      "id": "hand",
+      "title": "Height above drainage",
+      "asset": "hand.u16.gz",
+      "source": "HAND.tif",
+      "sourceCrs": "EPSG:3452",
+      "width": 3072,
+      "height": 3904,
+      "unitScale": 0.01,
+      "units": "m",
+      "kind": "hand",
+      "breaks": [
+        5,
+        10,
+        15,
+        20,
+        30,
+        40,
+        70
+      ],
+      "palette": [
+        "#38a1d0",
+        "#86babc",
+        "#b5d3a5",
+        "#deee8b",
+        "#f6e26d",
+        "#f9af50",
+        "#f77832",
+        "#ef281f"
+      ],
+      "labels": [
+        "<5",
+        "5\u201310",
+        "10\u201315",
+        "15\u201320",
+        "20\u201330",
+        "30\u201340",
+        "40\u201370",
+        "\u226570"
+      ],
+      "max": 163.219482421875,
+      "quantizationMaxError": 0.005000000000002558,
+      "bytes": 6573178,
+      "displayResolutionMeters": [
+        28.086792826804146,
+        28.08329615856141
+      ],
+      "meaning": "Height above hydrologically connected drainage; meters per author legend."
+    }
+  ]
+}

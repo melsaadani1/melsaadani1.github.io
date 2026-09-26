@@ -1,0 +1,14 @@
+# Keep scientific textures and media byte-for-byte intact on every platform.
+*.rgba binary
+*.gz binary
+*.png binary
+*.jpg binary
+*.mp4 binary
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.vtt text eol=lf
+*.txt text eol=lf
+# Preserve the bundled upstream library's indentation.
+map/vendor/*.js whitespace=-space-before-tab

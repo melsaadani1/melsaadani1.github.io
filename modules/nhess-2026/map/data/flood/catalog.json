@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "quantity": "Maximum flood depth",
+  "units": "ft",
+  "timeMeaning": "Per-cell maximum over the simulation; not a simultaneous water surface or a time sequence.",
+  "bounds": [
+    -94.4030016594138,
+    -119.9078997180286,
+    94.40049011462384,
+    119.99999999999909
+  ],
+  "width": 3072,
+  "height": 3904,
+  "rowOrder": "north-to-south (increasing scene z)",
+  "encoding": "gzip, little-endian uint16, hundredths of a foot; zero is transparent",
+  "unitScale": 0.01,
+  "colorMax": 15,
+  "legend": [
+    0,
+    1,
+    3,
+    6,
+    10,
+    15
+  ],
+  "palette": [
+    "#b0e4e5",
+    "#71cfdf",
+    "#38a8cf",
+    "#2676b4",
+    "#245199",
+    "#222e69"
+  ],
+  "defaultOpacity": 0.82,
+  "displayResolutionMeters": [
+    28.086792826804146,
+    28.08329615856141
+  ],
+  "processing": "Nearest-neighbor reprojection to the scene UTM grid, clipped to the supplied basin. Only positive source depths are visible. No interpolation, dilation, terrain-based flooding, or DEM subtraction. Source no-data, zero and negative numerical residues remain transparent. Downsampling can omit small wet features; use the native grids for spatial analysis. Depth is shown by color on illustrative terrain, not by an absolute water-surface elevation.",
+  "storms": [
+    {
+      "id": "atlas",
+      "title": "Atlas 14",
+      "asset": "atlas.depth-u16.gz",
+      "source": "Atlas14_TP40_100Yr_Depth_max_10ft.tiff",
+      "sourceCrs": "EPSG:6479",
+      "sourceUnits": "feet",
+      "sourcePixelSize": [
+        10.0,
+        10.0
+      ],
+      "sourcePixelUnits": "US survey feet",
+      "sourceStatistic": "Depth (Max)",
+      "displayMaxFt": 39.681,
+      "wetPixels": 3168056,
+      "validPixels": 3170653,
+      "wetAreaKm2": 2498.867,
+      "percentilesFt": [
+        1.476,
+        8.091,
+        9.27,
+        11.043
+      ],
+      "quantizationMaxErrorFt": 0.009998961351811886,
+      "bytes": 4432168
+    },
+    {
+      "id": "sst1",
+      "title": "SST 01",
+      "asset": "sst1.depth-u16.gz",
+      "source": "SST_R1_Depth_max_10ft.tiff",
+      "sourceCrs": "EPSG:6479",
+      "sourceUnits": "feet",
+      "sourcePixelSize": [
+        10.0,
+        10.0
+      ],
+      "sourcePixelUnits": "US survey feet",
+      "sourceStatistic": "Depth (Max)",
+      "displayMaxFt": 31.453,
+      "wetPixels": 2665642,
+      "validPixels": 2668200,
+      "wetAreaKm2": 2102.578,
+      "percentilesFt": [
+        1.339,
+        8.195,
+        9.435,
+        11.049
+      ],
+      "quantizationMaxErrorFt": 0.009996911510825157,
+      "bytes": 3725568
+    },
+    {
+      "id": "sst15",
+      "title": "SST 15",
+      "asset": "sst15.depth-u16.gz",
+      "source": "SST_R15_Depth_max_10ft.tiff",
+      "sourceCrs": "EPSG:6479",
+      "sourceUnits": "feet",
+      "sourcePixelSize": [
+        10.0,
+        10.0
+      ],
+      "sourcePixelUnits": "US survey feet",
+      "sourceStatistic": "Depth (Max)",
+      "displayMaxFt": 39.506,
+      "wetPixels": 2933244,
+      "validPixels": 2935896,
+      "wetAreaKm2": 2313.654,
+      "percentilesFt": [
+        1.405,
+        8.119,
+        9.345,
+        11.034
+      ],
+      "quantizationMaxErrorFt": 0.009994436986744404,
+      "bytes": 4112411
+    },
+    {
+      "id": "sst23",
+      "title": "SST 23",
+      "asset": "sst23.depth-u16.gz",
+      "source": "SST_R23_Depth_max_10ft.tiff",
+      "sourceCrs": "EPSG:6479",
+      "sourceUnits": "feet",
+      "sourcePixelSize": [
+        10.0,
+        10.0
+      ],
+      "sourcePixelUnits": "US survey feet",
+      "sourceStatistic": "Depth (Max)",
+      "displayMaxFt": 44.107,
+      "wetPixels": 2717435,
+      "validPixels": 2720202,
+      "wetAreaKm2": 2143.43,
+      "percentilesFt": [
+        1.738,
+        8.41,
+        9.636,
+        12.456
+      ],
+      "quantizationMaxErrorFt": 0.009993327781558037,
+      "bytes": 3873806
+    }
+  ]
+}
