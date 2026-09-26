@@ -1,7 +1,7 @@
 import {ExperimentGate} from './experiment-gate.js?v=1.6.0';
 import {BUILDINGS,FT,createInventory,fractionAt,evaluate,money} from './data.js';
-import {FloodScene} from './scene.js';
-import {RoadLab} from './road-app.js';
+import {FloodScene} from './scene.js?v=20260926-visual';
+import {RoadLab} from './road-app.js?v=20260926-visual';
 import {AccessibilityLab} from './access-app.js?v=1.6.2';
 let accessibilityLab;
 

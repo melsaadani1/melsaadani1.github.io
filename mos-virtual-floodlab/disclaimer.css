@@ -1,18 +1,18 @@
 body.disclaimer-open{overflow:hidden}
-#experiment-disclaimer{width:min(690px,calc(100% - 28px));max-width:690px;max-height:calc(100dvh - 28px);padding:0;border:1px solid #719382;border-radius:12px;background:#142a32;color:#ecf3ed;box-shadow:0 30px 110px #000a;overflow:auto;overscroll-behavior:contain}
-#experiment-disclaimer::backdrop{background:#07131de8;backdrop-filter:blur(7px)}
-.disclaimer-heading{padding:25px 28px 0;border-top:4px solid #b3f1cd}
-.disclaimer-heading>.eyebrow{font-size:10px;letter-spacing:1.6px;color:#b3f1cd}
-#disclaimer-experiment{display:block;margin-top:8px;font-size:12px;color:#c5d8d1}
+#experiment-disclaimer{width:min(690px,calc(100% - 28px));max-width:690px;max-height:calc(100dvh - 28px);padding:0;border:1px solid #c7d5c9;border-radius:12px;background:#f8f8f1;color:#245d58;box-shadow:0 30px 110px #f8f8f1aa;overflow:auto;overscroll-behavior:contain}
+#experiment-disclaimer::backdrop{background:#f8f8f1e8;backdrop-filter:blur(7px)}
+.disclaimer-heading{padding:25px 28px 0;border-top:4px solid #245d58}
+.disclaimer-heading>.eyebrow{font-size:10px;letter-spacing:1.6px;color:#245d58}
+#disclaimer-experiment{display:block;margin-top:8px;font-size:12px;color:#49685e}
 #experiment-disclaimer h2{font-size:29px;line-height:1.18;letter-spacing:-.7px;margin:16px 0 18px;font-weight:500;max-width:480px}
 #disclaimer-title:focus{outline:none}
 .disclaimer-copy{padding:0 28px 20px}
-#experiment-disclaimer p{font-size:13px;line-height:1.7;color:#bfd0d1;margin:0 0 16px}
-#experiment-disclaimer p strong{color:#edf3e8;font-weight:550}
-#experiment-disclaimer h3{font-size:13px;color:#dae9df;font-weight:600;margin:18px 0 7px}
-#experiment-disclaimer .disclaimer-understanding{padding:13px 15px;margin:20px 0 0;border-left:2px solid #cdb987;background:#233b3f;font-size:12px}
-.disclaimer-actions{display:flex;gap:12px;justify-content:flex-end;position:sticky;bottom:0;padding:16px 28px;background:#142a32;border-top:1px solid #47645b;box-shadow:0 -8px 18px #142a3230}
+#experiment-disclaimer p{font-size:13px;line-height:1.7;color:#49685e;margin:0 0 16px}
+#experiment-disclaimer p strong{color:#245d58;font-weight:550}
+#experiment-disclaimer h3{font-size:13px;color:#245d58;font-weight:600;margin:18px 0 7px}
+#experiment-disclaimer .disclaimer-understanding{padding:13px 15px;margin:20px 0 0;border-left:2px solid #926331;background:#eaf0e6;font-size:12px}
+.disclaimer-actions{display:flex;gap:12px;justify-content:flex-end;position:sticky;bottom:0;padding:16px 28px;background:#f8f8f1;border-top:1px solid #c7d5c9;box-shadow:0 -8px 18px #f8f8f130}
 .disclaimer-actions button{min-height:44px;min-width:122px;border-radius:5px;padding:11px 18px;font-size:13px}
-#disclaimer-leave{background:#233c43;border:1px solid #6f8886;color:#e0eae5}
-.disclaimer-actions button:focus-visible{outline:3px solid #f1d29c;outline-offset:3px}
+#disclaimer-leave{background:#eaf0e6;border:1px solid #c7d5c9;color:#243f3c}
+.disclaimer-actions button:focus-visible{outline:3px solid #926331;outline-offset:3px}
 @media(max-width:560px){.disclaimer-heading{padding:20px 19px 0}.disclaimer-copy{padding:0 19px 17px}#experiment-disclaimer h2{font-size:25px}#experiment-disclaimer p{font-size:13px}.disclaimer-actions{padding:13px 19px;gap:10px}.disclaimer-actions button{flex:1;min-width:0}}

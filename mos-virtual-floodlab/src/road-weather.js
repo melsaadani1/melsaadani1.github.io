@@ -5,7 +5,7 @@ import {stormIntensity} from './road-life.js';
 export class RoadWeather{
  constructor(view){
   this.view=view;this.active=false;
-  this.clearSky=new THREE.Color('#193941');this.stormSky=new THREE.Color('#152333');
+  this.clearSky=new THREE.Color('#dce5da');this.stormSky=new THREE.Color('#152333');
   this.overlay=document.createElement('div');this.overlay.className='road-storm';this.overlay.hidden=true;this.overlay.setAttribute('aria-hidden','true');
   this.overlay.innerHTML=`<svg class="road-storm-clouds" viewBox="0 0 1000 240" preserveAspectRatio="none"><path fill="#162438" d="M0 0H1000V73Q940 103 875 78Q820 143 720 92Q653 133 586 88Q497 125 418 75Q349 114 281 78Q173 119 114 68Q47 102 0 70Z"/><path fill="#263449" opacity=".65" d="M0 0H1000V27Q911 58 847 33Q744 77 662 41Q564 85 472 36Q385 63 317 35Q237 64 162 27Q76 59 0 29Z"/></svg><svg class="road-storm-lightning" viewBox="0 0 1000 600" preserveAspectRatio="none"><path d="M235 25L210 77L233 71L196 139L204 104L181 113L211 59L195 64Z"/></svg>`;
   view.host.append(this.overlay);this.bolt=this.overlay.querySelector('.road-storm-lightning');

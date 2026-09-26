@@ -55,7 +55,7 @@ function buildFurniture(item,g){
 export class FloodScene{
  constructor(host,onPick,onHover){
   this.host=host;this.onPick=onPick;this.onHover=onHover;this.componentGroups=new Map();this.cutaway=true;this.floorView='all';this.waterM=1.3;this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  this.scene=new THREE.Scene();this.scene.background=new THREE.Color(0x273e48);this.scene.fog=new THREE.Fog(0x273e48,42,95);
+  this.scene=new THREE.Scene();this.scene.background=new THREE.Color(0xdde5da);this.scene.fog=new THREE.Fog(0xdde5da,42,95);
   this.camera=new THREE.PerspectiveCamera(36,1,.1,180);
   this.renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.65));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.3;this.renderer.localClippingEnabled=true;host.prepend(this.renderer.domElement);
   this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.enableDamping=true;this.controls.dampingFactor=.07;this.controls.minDistance=9;this.controls.maxDistance=58;this.controls.maxPolarAngle=Math.PI*.48;this.controls.target.set(0,1,0);
@@ -88,11 +88,11 @@ export class FloodScene{
   if(this.outline){this.scene.remove(this.outline);this.outline.geometry.dispose();this.outline.material.dispose();}
   this.config=config;this.items=items;this.clearGroup(this.root);this.clearGroup(this.env);this.componentGroups.clear();this.roof=null;this.selected=null;this.shellWalls=[];this.storyGroups=[];this.outline=null;
   const {width:w,depth:d,ffe}=config;
-  box(this.env,27,.55,24,0,-.35,0,0x35505a);box(this.env,25,.08,22,0,-.035,0,0x607c70);box(this.env,w+2,.025,d+2,0,.017,0,0x85968a);
+  box(this.env,27,.55,24,0,-.35,0,0x879b81);box(this.env,25,.08,22,0,-.035,0,0x607c70);box(this.env,w+2,.025,d+2,0,.017,0,0x85968a);
   box(this.env,2.7,.04,6,0,.042,d/2+3,0xb3b5a8);for(let i=0;i<5;i++)box(this.env,2.65,.01,.025,0,.07,d/2+i*1.1,0x818d86);
   for(const p of [[-10,-7,1.1],[9,6,.9],[-9,6,1.2],[10,-7,1]]){const [x,z,s]=p;cyl(this.env,.14,.19,1.9*s,x,.95*s,z,0x7c7860);sphere(this.env,1,x,2.1*s,z,0x688977,1,1.4,1);sphere(this.env,.8,x+.45,2.5*s,z-.2,0x7a957c);}
   for(const x of [-6.8,6.8])for(const z of [4.8,5.6])plant(this.env,x,0,z,1.3);
-  const ground=new THREE.Mesh(new THREE.PlaneGeometry(300,300),mat(0x273e48));ground.rotation.x=-Math.PI/2;ground.position.y=-.65;ground.receiveShadow=true;this.env.add(ground);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(300,300),mat(0xdde5da));ground.rotation.x=-Math.PI/2;ground.position.y=-.65;ground.receiveShadow=true;this.env.add(ground);
   for(const item of items){const g=new THREE.Group();g.name=item.id;g.position.set(item.x,item.baseM,item.z);g.userData.itemId=item.id;g.userData.level=item.level;this.root.add(g);this.componentGroups.set(item.id,g);
    if(item.group==='contents')buildFurniture(item,g);
    else this.buildAssembly(item,g);

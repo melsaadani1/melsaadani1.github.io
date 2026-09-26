@@ -5,7 +5,7 @@ const header = document.querySelector(".site-header");
 window.addEventListener("scroll", () => {
   const current = window.scrollY;
   header.dataset.compact = current > 24 ? "true" : "false";
-  header.style.boxShadow = current > 24 ? "0 10px 28px rgba(23, 32, 38, 0.08)" : "none";
+  header.style.boxShadow = current > 24 ? "0 4px 20px rgba(36, 63, 60, 0.035)" : "none";
 });
 
 const resourceTabs=[...document.querySelectorAll('.resource-tabs [role="tab"]')];

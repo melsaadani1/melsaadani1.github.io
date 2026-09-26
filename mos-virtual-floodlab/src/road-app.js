@@ -1,6 +1,6 @@
 import {createCity,analyzeFlood,recoveryState,progress,damageFraction,DAMAGE_CURVE,ASSUMPTIONS,FT,floodHydrograph} from './road-model.js';
 import {crewAssignments,EVACUATION_MS} from './road-life.js';
-import {RoadScene} from './road-scene.js';
+import {RoadScene} from './road-scene.js?v=20260926-visual';
 import {RoadGuide} from './road-guide.js';
 const cash=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n),length=n=>n>=1000?(n/1000).toFixed(2)+' km':Math.round(n)+' m',days=n=>n.toFixed(1),pct=n=>(100*n).toFixed(1)+'%';
 const sourceHTML=`<div class="dialog-header"><span class="eyebrow">THE SCIENCE & THE ASSUMPTIONS</span><button data-road-close aria-label="Close road model notes">×</button></div>

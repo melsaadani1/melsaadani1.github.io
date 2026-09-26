@@ -3,13 +3,13 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {FT,SIZE,NX,NZ,wetAt,progress} from './road-model.js';
 import {buildTown} from './road-town.js';
 import {RoadActors} from './road-actors.js';
-import {RoadWeather} from './road-weather.js';
+import {RoadWeather} from './road-weather.js?v=20260926-visual';
 const V=.8,BASE=-1.4; // 8× vertical exaggeration; x/z units each represent 10 m.
 const hash=(x,z)=>{const n=Math.sin(x*127.1+z*311.7)*43758.5453;return n-Math.floor(n);};
 export class RoadScene{
  constructor(host,city,onPick){
   this.host=host;this.city=city;this.onPick=onPick;this.selected=null;this.stage=-1;
-  this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#193941');
+  this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#dce5da');
   this.camera=new THREE.OrthographicCamera(-40,40,30,-30,.1,250);
   this.renderer=new THREE.WebGLRenderer({antialias:false,powerPreference:'low-power'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.shadowMap.autoUpdate=false;this.renderer.outputColorSpace=THREE.SRGBColorSpace;host.prepend(this.renderer.domElement);this.renderer.domElement.setAttribute('aria-label','Riverbend town: select a road section to inspect flood damage');
   this.ambient=new THREE.HemisphereLight('#d7efeb','#586147',1.9);this.scene.add(this.ambient);const sun=new THREE.DirectionalLight('#fff0cd',2.3);sun.position.set(-30,55,25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-48,right:48,top:45,bottom:-45,near:1,far:140});sun.shadow.bias=-.001;sun.shadow.normalBias=.08;this.scene.add(sun);this.sun=sun;

@@ -7,26 +7,27 @@
   <meta name="description" content="Welcome to Mo’s Virtual FloodLab. Choose an experiment and explore how flooding turns into economic losses, one what-if at a time.">
   <meta name="theme-color" content="#101e27"><title>Mo’s Virtual FloodLab</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101e27'/%3E%3Ctext x='12' y='46' fill='%23b1f4ce' font-size='43' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./road.css">
+  <link rel="stylesheet" href="./style.css?v=visual-1">
+  <link rel="stylesheet" href="./road.css?v=visual-1">
   <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="./access.css">
-  <link rel="stylesheet" href="./disclaimer.css?v=1.6.0">
+  <link rel="stylesheet" href="./access.css?v=visual-1">
+  <link rel="stylesheet" href="./disclaimer.css?v=visual-1">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script>
+  <link rel="stylesheet" href="./refinement.css?v=1">
 </head>
 <body data-module="home">
-  <header class="topbar"><a class="brand" href="#home" aria-label="Mo’s Virtual FloodLab home"><span class="brand-mark">M<span>≈</span></span><span class="brand-name">Mo’s <span>Virtual FloodLab</span></span><span class="edition">A PLACE FOR WHAT-IFS</span></a><div class="top-actions" hidden><button id="lesson-open" class="text-button">Guided experiments <span>↗</span></button><button id="about-open" class="icon-button" aria-label="About the model">?</button></div></header>
+  <header class="topbar"><a class="brand" href="#home" aria-label="Mo’s Virtual FloodLab home"><span class="brand-mark">M<span>≈</span></span><span class="brand-name">Mo’s <span>Virtual FloodLab</span></span><span class="edition">HIST 430 · INTERACTIVE LAB</span></a><a class="resources-back" href="../#classes">← Learning Resources</a><div class="top-actions" hidden><button id="lesson-open" class="text-button">Guided experiments <span>↗</span></button><button id="about-open" class="icon-button" aria-label="About the model">?</button></div></header>
   <main>
     <section id="lab-welcome" class="lab-welcome" aria-labelledby="welcome-title">
-      <div class="welcome-meta"><span>MO’S VIRTUAL FLOODLAB</span><span>WATER: VIRTUAL / CURIOSITY: REQUIRED</span></div>
+      <div class="welcome-meta"><span>HIST 430 / THE FLOOD EXPERIMENTS</span><span>WATER: VIRTUAL / CURIOSITY: REQUIRED</span></div>
       <h1 id="welcome-title">Welcome to the<br><em>what-if zone.</em></h1>
       <p>Big what-ifs. Small virtual disasters.<br>Choose your experiment and see what the water costs.</p>
       <div class="choose-prompt"><span>CHOOSE YOUR EXPERIMENT</span><span aria-hidden="true">↓</span></div>
     </section>
     <nav class="module-tabs" aria-label="Choose your experiment">
-      <a id="building-module-link" class="module-tab" href="#buildings"><span class="module-number">01</span><span class="module-copy"><strong>Building economic losses</strong><span>Flood a building. Follow the damage, item by item.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
-      <a id="road-module-link" class="module-tab road-tab" href="#roads"><span class="module-number">02</span><span class="module-copy"><strong>Road network economic losses</strong><span>Send a flood through town. Follow the repairs.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
-      <a id="access-module-link" class="module-tab" href="#accessibility"><span class="module-number">03</span><span class="module-copy"><strong>Flood &amp; accessibility</strong><span>Choose a trip. Find out when the way closes—and returns.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
+      <a id="building-module-link" class="module-tab" href="#buildings"><svg class="experiment-art" viewBox="0 0 320 120" aria-hidden="true"><path class="art-land" d="M15 98H305"/><path class="art-building" d="M77 85V47L133 17l58 30v38Z"/><path class="art-roof" d="m66 50 67-38 70 38M133 17v68M77 47l56 29 58-29"/><path class="art-detail" d="M94 56v19l18 9V65ZM151 66v18l22-11V55ZM120 48v16l-16-8V40Z"/><path class="art-water" d="M30 91q20-9 40 0t40 0t40 0t40 0t40 0t40 0M46 104q20-9 40 0t40 0t40 0t40 0t40 0"/></svg><span class="module-number">01</span><span class="module-copy"><strong>Building economic losses</strong><span>Flood a building. Follow the damage, item by item.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
+      <a id="road-module-link" class="module-tab road-tab" href="#roads"><svg class="experiment-art" viewBox="0 0 320 120" aria-hidden="true"><path class="art-land" d="m28 93 88-53 100 49 78-45M23 48l115 57 117-70"/><path class="art-road" d="m32 86 85-46 99 50 73-42M57 48l74 40 101-58"/><path class="art-building" d="M67 41V27l17-9 17 9v16l-17 9ZM207 61V44l20-10 20 10v17l-20 10Z"/><path class="art-detail" d="m67 27 17 9 17-9M84 36v16m123-8 20 10 20-10m-20 10v17"/><path class="art-water" d="M9 73q46-37 82-17t75-16 79-3 64-14"/></svg><span class="module-number">02</span><span class="module-copy"><strong>Road network economic losses</strong><span>Send a flood through town. Follow the repairs.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
+      <a id="access-module-link" class="module-tab" href="#accessibility"><svg class="experiment-art" viewBox="0 0 320 120" aria-hidden="true"><path class="art-land" d="m20 42 81 41 101-55 98 50M38 101l82-56 91 48 62-62"/><path class="art-water" d="M126 11q48 23 19 48t18 48M141 9q47 26 21 49t17 50"/><path class="art-route" d="m54 77 62-36 66 34 78-38"/><circle class="art-pin" cx="54" cy="77" r="12"/><circle class="art-pin" cx="260" cy="37" r="12"/><text x="54" y="81" text-anchor="middle">A</text><text x="260" y="41" text-anchor="middle">B</text></svg><span class="module-number">03</span><span class="module-copy"><strong>Flood &amp; accessibility</strong><span>Choose a trip. Find out when the way closes—and returns.</span></span><span class="module-status">OPEN EXPERIMENT <span aria-hidden="true">↗</span></span></a>
     </nav>
     <section id="building-module" class="module-content" aria-label="Building economic losses" hidden>
     <section class="intro"><div><div class="eyebrow">EXPERIMENT 01 / BUILDING ECONOMIC LOSSES</div><h1>Every inch has a cost.</h1><p>Raise the water. Look inside. Find out what adds up.</p></div><div class="model-note"><span class="note-dot"></span> A learning model<span>Made-up values. Real connections.</span></div></section>
@@ -47,7 +48,7 @@
     <footer><span>Built for curiosity, not prediction.</span><span>Archetypes informed by <a href="https://www.mdpi.com/2073-4441/12/8/2277" target="_blank" rel="noopener">Nofal &amp; van de Lindt (2020) ↗</a><button id="assumptions">Model assumptions</button></span></footer>
     </section>
     <section id="road-module" class="module-content road-module" aria-labelledby="road-title" hidden>
-      <div class="road-intro"><div><span class="eyebrow">EXPERIMENT 02 / ROAD ECONOMIC LOSSES</span><h1 id="road-title">The water leaves.<br>The work remains.</h1><p>Choose a flood. Explore the red roads. Watch the town recover.</p></div><div class="road-intro-guide"><button id="road-guide-start" aria-haspopup="dialog">Guided experiment <span>↗</span></button><span>6 short steps · flood, inspect, repair</span></div></div>
+      <div class="road-intro"><div><span class="eyebrow">EXPERIMENT 02 / ROAD ECONOMIC LOSSES</span><h1 id="road-title">The water leaves. <br>The work remains.</h1><p>Choose a flood. Explore the red roads. Watch the town recover.</p></div><div class="road-intro-guide"><button id="road-guide-start" aria-haspopup="dialog">Guided experiment <span>↗</span></button><span>6 short steps · flood, inspect, repair</span></div></div>
       <div id="road-lab"></div>
     </section>
     <section id="access-module" class="module-content" aria-labelledby="access-title" hidden><div class="access-intro"><div><span class="eyebrow">EXPERIMENT 03 / FLOOD &amp; ACCESSIBILITY</span><h1 id="access-title">Is there still a way through?</h1><p>Two points. Real streets. A route that changes with the flood.</p></div><div><strong>6 inches changes the trip.</strong>Roads close at 6 in of water.<br>Watch detours, isolation and reconnection.</div></div><div id="access-lab"></div></section>
@@ -57,6 +58,6 @@
   <dialog id="lesson" aria-labelledby="lesson-title"><div class="dialog-header"><span class="eyebrow">GUIDED EXPERIMENT <span id="lesson-counter">01 / 04</span></span><button class="close-dialog" aria-label="Close experiment">×</button></div><div class="lesson-number" id="lesson-number">01</div><h2 id="lesson-title"></h2><p id="lesson-text"></p><ol id="lesson-steps"></ol><div class="lesson-takeaway"><strong>What to notice</strong><p id="lesson-takeaway"></p></div><div class="lesson-actions"><button id="lesson-apply" class="primary-button">Set up this experiment ↗</button><button id="lesson-next" class="small-button">Next experiment →</button></div></dialog>
   <noscript>This tutorial needs JavaScript to display the building and calculate damage.</noscript>
   <script src="./vendor/leaflet/leaflet.js"></script>
-  <script type="module" src="./src/app.js?v=1.6.2"></script>
+  <script type="module" src="./src/app.js?v=20260926-visual"></script>
 </body>
 </html>
