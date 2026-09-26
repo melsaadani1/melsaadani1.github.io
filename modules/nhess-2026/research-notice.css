@@ -1,0 +1,23 @@
+body[data-research-locked]{overflow:hidden;background:#dfe8df}
+[data-research-content][hidden]{display:none!important}
+#research-notice{position:fixed;inset:0;width:min(700px,calc(100% - 28px));max-width:700px;max-height:calc(100dvh - 28px);margin:auto;padding:0;border:1px solid #bccfc3;border-radius:12px;background:#fafaf3;color:#183c3b;box-shadow:0 28px 100px #163b3b35;font:14px/1.65 'Segoe UI',Arial,sans-serif;overflow:auto;overscroll-behavior:contain}
+#research-notice::backdrop{background:#173a38e8;backdrop-filter:blur(8px)}
+#research-notice .notice-heading{padding:26px 30px 0;border-top:5px solid #386a60}
+#research-notice .notice-kicker{margin:0 0 10px;font-size:10px;font-weight:650;letter-spacing:.15em;color:#4c7063;text-transform:uppercase}
+#research-notice h2{font:32px/1.15 Georgia,serif;letter-spacing:-.6px;margin:0 0 19px;color:#183c3b}
+#research-notice h2:focus{outline:none}
+#research-notice .notice-copy{padding:0 30px}
+#research-notice h3{font:600 14px/1.4 'Segoe UI',Arial,sans-serif;margin:20px 0 7px;color:#183c3b}
+#research-notice p{margin:0 0 13px;color:#425e56;font-size:13px;line-height:1.65}
+#research-notice strong{color:#183c3b;font-weight:650}
+#research-notice .notice-understanding{background:#eaf0e6;border:1px solid #d2decf;border-radius:6px;padding:13px 15px;margin:20px 0 0}
+#research-notice .notice-actions{position:sticky;bottom:0;display:flex;justify-content:flex-end;gap:12px;padding:18px 30px;background:#fafaf3;border-top:1px solid #dae3d7;margin-top:20px}
+#research-notice .notice-actions a,#research-notice .notice-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 23px;border:1px solid #bacbbe;border-radius:5px;font:600 13px/1.4 'Segoe UI',Arial,sans-serif;text-decoration:none;background:#f3f5ed;color:#183c3b;cursor:pointer}
+#research-notice #research-acknowledge{background:#245d58;border-color:#245d58;color:white}
+#research-notice #research-acknowledge:disabled{opacity:.55;cursor:wait}
+#research-notice a:focus-visible,#research-notice button:focus-visible{outline:3px solid #b78345;outline-offset:3px}
+#research-notice a:hover{background:#e5eddf}
+#research-notice #research-acknowledge:hover:not(:disabled){background:#174b46}
+#research-notice #research-notice-error{color:#8d382c;margin-top:15px}
+#research-notice [hidden]{display:none!important}
+@media(max-width:520px){#research-notice{width:calc(100% - 20px);max-height:calc(100dvh - 20px)}#research-notice .notice-heading{padding:22px 21px 0}#research-notice .notice-copy{padding:0 21px}#research-notice h2{font-size:28px}#research-notice .notice-actions{padding:15px 21px}#research-notice .notice-actions>*{flex:1}}

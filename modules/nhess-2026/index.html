@@ -3,9 +3,27 @@
 <meta name="description" content="Explore the Vermilion River Basin study through a narrated film and interactive maps of design rainfall, flooding, building exposure, and height above drainage.">
 <meta name="theme-color" content="#163b3b"><title>Design storms in the Vermilion Basin · ElSaadani et al.</title>
 <link rel="stylesheet" href="./module.css?v=1"><link rel="icon" href="data:,">
-</head><body>
-<header class="site-bar"><a href="../../#interactive-modules">← Learning Resources</a><span>INTERACTIVE MODULE <b>01</b></span><a href="./map/">Open the map ↗</a></header>
-<main>
+<link rel="stylesheet" href="./research-notice.css?v=1">
+</head><body data-research-locked>
+<dialog id="research-notice" open closedby="none" aria-modal="true" aria-labelledby="research-notice-title" aria-describedby="research-notice-intro">
+  <div class="notice-heading"><p class="notice-kicker">ElSaadani et al. · NHESS 2026</p><h2 id="research-notice-title" tabindex="-1">For research and education only.</h2></div>
+  <div class="notice-copy">
+    <p id="research-notice-intro">This module, including its film, maps, visualizations, data and estimates, is a <strong>research and educational product</strong>. It is not an operational forecast, an official hazard determination, or professional advice.</p>
+    <h3>Understand the limits</h3>
+    <p>Results reflect the study's scenarios, assumptions and model limitations. The landscape and buildings are illustrative. Flooding, exposure and damage estimates may not represent actual conditions, individual properties or future events. An area shown without flooding is not a guarantee of safety.</p>
+    <h3>Do not use it for real-world decisions</h3>
+    <p>Do not rely on this product for navigation, evacuation, emergency response, engineering design, property, insurance, financial or regulatory decisions, or to determine legal responsibility or liability. Consult official sources and appropriately qualified professionals for those purposes.</p>
+    <h3>No warranties; limitation of liability</h3>
+    <p>This product is provided “as is” and “as available,” without express or implied warranties, including accuracy, completeness, merchantability or fitness for a particular purpose. To the fullest extent permitted by applicable law, its authors, contributors and affiliated institutions disclaim liability for losses or damages arising from use of, or reliance on, this product. Nothing in this notice excludes liability that cannot lawfully be excluded.</p>
+    <p class="notice-understanding">Select <strong>Acknowledge</strong> to confirm that you have read and understood this research-use notice and continue. Otherwise, select <strong>Leave</strong>.</p>
+    <p id="research-notice-error" role="status" hidden>The module could not start. Select Acknowledge to try again, or Leave to return to Learning Resources.</p>
+    <noscript><p>JavaScript is required to acknowledge this notice and open the module. You can still select Leave.</p></noscript>
+  </div>
+  <div class="notice-actions"><a href="../../#interactive-modules">Leave</a><button id="research-acknowledge" type="button" disabled>Acknowledge</button></div>
+</dialog>
+
+<header data-research-content hidden inert class="site-bar"><a href="../../#interactive-modules">← Learning Resources</a><span>INTERACTIVE MODULE <b>01</b></span><a href="./map/">Open the map ↗</a></header>
+<main data-research-content hidden inert>
   <section class="hero">
     <div class="hero-copy"><p class="eyebrow">ElSaadani et al. · NHESS 2026</p><h1>One watershed.<br>Different <em>design storms.</em></h1><p class="lede">Where the rain falls changes who gets flooded.</p><p>Explore how the spatial pattern of design rainfall changes modeled flood exposure and building damage in Louisiana’s Vermilion River Basin.</p>
       <div class="actions"><a class="button primary" href="#film">▶ Watch the film <small>3 min 33 sec</small></a><a class="button secondary" href="./map/">Explore the watershed ↗</a></div>
@@ -20,5 +38,5 @@
     <div class="map-invite"><div><h3>Now explore the maps yourself.</h3><p>Choose a map and a scenario, then move between the basin and its neighborhoods.</p></div><a class="button primary" href="./map/">Open the interactive map ↗</a></div>
   </section>
   <section class="study-note"><p class="eyebrow">About this module</p><h2>Research you can explore.</h2><p>This module accompanies <a href="https://doi.org/10.5194/egusphere-2026-1388" target="_blank" rel="noopener">Effect of Design Storm Characterization on Flood Exposure and Structure Damage Estimates</a>. It presents study results using an illustrative 3D landscape.</p><p>The three SST examples are individual storms. SSTmax combines the greatest flood depth at each location across all 50 SST simulations; it is an ensemble envelope, not a single event. HAND describes height above the connected drainage channel, not flood depth.</p><p class="credit">Rainfall, flood, cluster, and HAND layers: study data. Terrain and buildings: illustrative. Roads © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>. Film includes AI narration; study chart by the authors, CC BY 4.0.</p></section>
-</main><footer><a href="../../#interactive-modules">← Back to Learning Resources</a><span>ElSaadani et al. · Vermilion River Basin</span></footer><script src="./module.js?v=1" defer></script>
-</body></html>
+</main><footer data-research-content hidden inert><a href="../../#interactive-modules">← Back to Learning Resources</a><span>ElSaadani et al. · Vermilion River Basin</span></footer>
+<script src="./research-notice.js?v=1" data-entry="./module.js?v=1" defer></script></body></html>
