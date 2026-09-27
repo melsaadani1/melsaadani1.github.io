@@ -29,3 +29,11 @@ function resourceAnchor(){
 window.addEventListener('hashchange',resourceAnchor);
 window.addEventListener('load',()=>requestAnimationFrame(resourceAnchor),{once:true});
 resourceAnchor();
+
+// Navigation points to the compact section; only its disclosure opens the list.
+document.querySelectorAll('nav a[href="#publications"], nav a[href="#funding"], nav a[href="#presentations"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const disclosure = document.querySelector(link.getAttribute('href') + ' .section-disclosure');
+    if (disclosure) disclosure.open = false;
+  });
+});
