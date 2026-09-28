@@ -1,0 +1,13 @@
+Hydrology & hydraulics — one-minute introduction
+
+How does rainfall become flow, and how does flow become flooding? Explore both questions in Rohan Creek, a watershed with one outlet.
+
+Begin with rainfall and infiltration. Explore terrain and land-use layers, or open additional storm and land-cover options.
+
+Follow infiltration and runoff, then create a hydrograph. Hydrology gives discharge through time, not water height.
+
+Next, explore depth, water elevation, velocity, and flood extent. Replay the flood, inspect a point, or view the mesh.
+
+Change one input. Pin hydrographs, switch between original and changed floods, and read the comparison table.
+
+Four numbered steps keep you on track. Optional explanations and equations add detail. These flood maps are illustrative. Can you connect rainfall, runoff, discharge, and inundation?

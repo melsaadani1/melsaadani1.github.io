@@ -1,3 +1,4 @@
+import {StudentGuide} from './student-guide.js?v=20260928-intro2';
 import {loadBinary,validateDataset} from './access-data.js?v=1.6.2';
 import {makeRoadLayer,nearestRoad} from './access-map.js';
 import {buildPlaceIndex,searchPlaces,snapPlace} from './access-places.js';
@@ -33,6 +34,9 @@ export class AccessibilityLab{
    <dialog id="access-guide">${help}</dialog></div><div class="sr-only" id="access-announcement" role="status"></div>`;
 
   this.bind();this.ready=this.load();
+  this.studentGuide=new StudentGuide('accessibility',{mount:this.$('access-workspace'),entry:document.getElementById('access-module'),before:host,prepare:(i,cue)=>{this.stop();this.details(cue.panel==='details');},extra:()=>{this.stop();this.$('access-guide').showModal();},extraLabel:'All instructions'});
+  this.studentGuide.toolbar(this.$('access-guide-open'));
+
 
  }
 

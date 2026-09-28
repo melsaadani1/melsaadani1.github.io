@@ -1,0 +1,13 @@
+Road damage & recovery — one-minute introduction
+
+A flood can disappear while its economic effects remain. Explore road damage, repair costs, and recovery across a small town.
+
+Choose a rise above the stream banks, then run the flood. Watch water reach connected low streets while higher roads may stay dry.
+
+After drainage, red roads still need work. Select one to inspect its local depth, damage fraction, and contribution to the repair bill.
+
+The Curves tab links depth with damage and shows recovery through time. Repair jobs let you see which sections are waiting, underway, or finished.
+
+Change the number of crews, play recovery, or move the day slider. Watch crews work and residents return. More crews can finish sooner without changing the original damage bill.
+
+These are simplified estimates. Your challenge: distinguish what controls damage from what controls recovery. The interactive guide helps you find each control.

@@ -1,0 +1,13 @@
+Building economic losses — one-minute introduction
+
+How does floodwater become an economic loss? Connect water depth, damage to individual objects, and the cost for a building and its contents.
+
+Explore a one-story home, a two-story home, or a clinic. Rotate, zoom, and use the cutaway to examine objects at different heights.
+
+Change the water level with a slider or the indoor-depth presets. Red shading reveals modeled damage, while the receipt separates contents from building components.
+
+Select an item to see its value, damage percentage, and cost. The chart displays percentages or dollars, showing how individual losses add up.
+
+Raise a selected item to test how its loss changes at the same water level. The interactive guide helps you find each control.
+
+These are illustrative classroom estimates. Your challenge: explain why the same flood does not cause the same damage everywhere.

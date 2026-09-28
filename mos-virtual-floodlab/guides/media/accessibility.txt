@@ -1,0 +1,13 @@
+Flood & accessibility — one-minute introduction
+
+A flooded road can affect people far from the water. Explore whether places remain connected, how travel time changes, and when access returns.
+
+Choose two road points. Landmark menus, place search, and ready-made trips help you explore journeys across Lafayette.
+
+Play the flood or choose a saved hour. Roads close at six inches of modeled water depth. The available route updates as conditions change.
+
+The travel-time chart distinguishes a detour from disconnection. A gap means no route; teal roads show where the starting point can still reach.
+
+Connection windows summarize interruptions and reconnection. Road check inspects individual roads; map controls change the displayed layers.
+
+Snapshots are four hours apart, and repair delays are excluded. Your challenge: explain how the same flood affects different trips. These examples are not navigation advice.

@@ -1,6 +1,7 @@
 import {createCity,analyzeFlood,recoveryState,progress,damageFraction,DAMAGE_CURVE,ASSUMPTIONS,FT,floodHydrograph} from './road-model.js';
 import {crewAssignments,EVACUATION_MS} from './road-life.js';
 import {RoadScene} from './road-scene.js?v=20260926-visual';
+import {StudentGuide} from './student-guide.js?v=20260928-intro2';
 import {RoadGuide} from './road-guide.js';
 const cash=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n),length=n=>n>=1000?(n/1000).toFixed(2)+' km':Math.round(n)+' m',days=n=>n.toFixed(1),pct=n=>(100*n).toFixed(1)+'%';
 const sourceHTML=`<div class="dialog-header"><span class="eyebrow">THE SCIENCE & THE ASSUMPTIONS</span><button data-road-close aria-label="Close road model notes">×</button></div>
@@ -34,6 +35,10 @@ export class RoadLab{
   this.$=id=>host.querySelector('#'+id);this.$('road-city-size').textContent='650 × 450 m · '+length(this.city.totalLength)+' of roads';
   try{this.scene=new RoadScene(this.$('road-map'),this.city,(id,spot)=>this.select(id,spot));this.$('road-loading').remove();}catch(e){console.error(e);this.$('road-loading').textContent='3D view unavailable. Use the section menu and repair jobs to explore the same model.';}
   this.bind();this.drawCharts();this.updateLife();this.guide=new RoadGuide(this);
+  this.studentGuide=new StudentGuide('roads',{mount:this.$('road-workspace'),entry:document.getElementById('road-module'),before:host,prepare:(i,cue)=>{if(i>0&&!this.event)return 'Run a flood in step 1 first. After it drains, these results become available.';if(this.running)return 'Watch the storm finish and the water drain, then continue.';this.stopRepair();if(cue.panel){this.panel(cue.panel);this.info(true);}else this.info(false);},extra:()=>this.guide.open(),extraLabel:'More challenges'});
+  this.studentGuide.toolbar(this.$('road-guide-toolbar'));
+  document.querySelector('.road-intro-guide').hidden=true;
+
  }
  bind(){const $=this.$;
   $('road-peak').addEventListener('input',e=>this.setPeak(+e.target.value));$('road-peak').addEventListener('change',()=>this.prompt());this.host.querySelectorAll('[data-peak]').forEach(b=>b.addEventListener('click',()=>{this.setPeak(+b.dataset.peak);this.prompt();}));$('road-run').onclick=()=>this.prompt();$('road-confirm-start').onclick=()=>{this.$('road-confirm').close();this.startFlood();};

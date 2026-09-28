@@ -15,14 +15,15 @@
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script>
   <link rel="stylesheet" href="./refinement.css?v=1">
   <link rel="stylesheet" href="./hh-hub.css?v=20260928-1">
-</head>
+<link rel="stylesheet" href="./guides.css?v=20260928-intro2"></head>
 <body data-module="home">
-  <header class="topbar"><a class="brand" href="#home" aria-label="Mo’s Virtual FloodLab home"><span class="brand-mark">M<span>≈</span></span><span class="brand-name">Mo’s <span>Virtual FloodLab</span></span><span class="edition">HIST 430 · INTERACTIVE LAB</span></a><a class="resources-back" href="../#classes">← Learning Resources</a><div class="top-actions" hidden><button id="lesson-open" class="text-button">Guided experiments <span>↗</span></button><button id="about-open" class="icon-button" aria-label="About the model">?</button></div></header>
+  <header class="topbar"><a class="brand" href="#home" aria-label="Mo’s Virtual FloodLab home"><span class="brand-mark">M<span>≈</span></span><span class="brand-name">Mo’s <span>Virtual FloodLab</span></span><span class="edition">HIST 430 · INTERACTIVE LAB</span></a><a class="resources-back" href="../#classes">← Learning Resources</a><div class="top-actions" hidden><button id="lesson-open" class="text-button">More challenges <span>↗</span></button><button id="about-open" class="icon-button" aria-label="About the model">?</button></div></header>
   <main>
     <section id="lab-welcome" class="lab-welcome" aria-labelledby="welcome-title">
       <div class="welcome-meta"><span>HIST 430 / THE FLOOD EXPERIMENTS</span><span>WATER: VIRTUAL / CURIOSITY: REQUIRED</span></div>
       <h1 id="welcome-title">Welcome to the<br><em>what-if zone.</em></h1>
       <p>Big what-ifs. Small virtual disasters.<br>Choose an experiment. Follow the water, from rainfall to consequences.</p>
+      <p><a class="guide-library-link" href="./guides/">▶ Watch the one-minute module introductions</a></p>
       <div class="choose-prompt"><span>CHOOSE YOUR EXPERIMENT</span><span aria-hidden="true">↓</span></div>
     </section>
     <nav class="module-tabs" aria-label="Choose your experiment">
@@ -60,6 +61,6 @@
   <dialog id="lesson" aria-labelledby="lesson-title"><div class="dialog-header"><span class="eyebrow">GUIDED EXPERIMENT <span id="lesson-counter">01 / 04</span></span><button class="close-dialog" aria-label="Close experiment">×</button></div><div class="lesson-number" id="lesson-number">01</div><h2 id="lesson-title"></h2><p id="lesson-text"></p><ol id="lesson-steps"></ol><div class="lesson-takeaway"><strong>What to notice</strong><p id="lesson-takeaway"></p></div><div class="lesson-actions"><button id="lesson-apply" class="primary-button">Set up this experiment ↗</button><button id="lesson-next" class="small-button">Next experiment →</button></div></dialog>
   <noscript>This tutorial needs JavaScript to display the building and calculate damage.</noscript>
   <script src="./vendor/leaflet/leaflet.js"></script>
-  <script type="module" src="./src/app.js?v=20260926-visual"></script>
+  <script type="module" src="./src/app.js?v=20260928-intro2"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+import {StudentGuide} from '../src/student-guide.js?v=20260928-intro2';
 import {bindEquationDemos} from './equations.mjs';
 import {WatershedWorld} from './world.mjs';
 import {hydrology,clamp,landUse,ZONES} from './model.mjs';
@@ -53,7 +54,7 @@ function goStep(i){if(i>state.unlocked)return;clearTimeout(changeTimer);stop();s
  if(i===3){updateComparison();world.fly(-80,2920,50);}
  if(i===0)$('run-status').textContent='Start with the default storm, or choose your own.';
  if(i===1)$('run-status').textContent=state.hydro?'Hydrograph ready. Continue to the flood map.':'Watch the processes, then create the hydrograph.';
- syncBeacon();$('steps').scrollIntoView({behavior:'smooth',block:'start'});
+ syncBeacon();document.dispatchEvent(new Event('hh:step'));$('steps').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function calculateHydro(){state.hydro=hydrology(inputs());world.setData(state.hydro);$('pin-hydro').disabled=false;renderHydro();return state.hydro;}
 function runHydro(){calculateHydro();state.hydraulic=null;state.baseline=null;state.changed=null;setProcess('routing');$('hydro-results').hidden=false;$('step-next').disabled=false;state.unlocked=Math.max(state.unlocked,2);$('run-status').textContent=`Hydrology ready: peak ${fmt(state.hydro.peak)} m³/s at ${fmt(state.hydro.peakTime)} hours.`;document.querySelector('[data-step="2"]').disabled=false;syncBeacon();$('hydro-results').scrollIntoView({behavior:'smooth',block:'center'});}
@@ -100,7 +101,7 @@ $('inspect-village').onclick=()=>{world.fly(STUDY_POINT.x,STUDY_POINT.z,26);worl
 $('show-mesh').onclick=()=>{setLayer(state.layer==='mesh'?'landscape':'mesh');$('show-mesh').textContent=state.layer==='mesh'?'Hide the terrain mesh':'Show the terrain mesh';};
 $('equations-open').onclick=()=>openDetails('Equations & model details',METHODS);$('budget-open').onclick=budget;document.querySelector('.dialog-close').onclick=()=>$('details-dialog').close();$('inspect-close').onclick=()=>{$('map-inspector').hidden=true;state.inspected=null;world.pick.visible=false;};
 $('flow-toggle').onchange=e=>world.waterEffects.enabled=e.target.checked;$('cloud-toggle').onchange=e=>world.waterEffects.cloudsEnabled=e.target.checked;$('labels-toggle').onchange=e=>world.showLabels=e.target.checked;
-$('camera-home').onclick=()=>world.home();$('camera-top').onclick=()=>world.top();$('camera-rotate').onclick=()=>world.rotate();$('camera-plus').onclick=()=>world.zoom(.8);$('camera-minus').onclick=()=>world.zoom(1.25);$('expand').onclick=()=>{const expanded=document.body.classList.toggle('is-expanded');$('expand').setAttribute('aria-pressed',String(expanded));$('expand').setAttribute('aria-label',expanded?'Return to page layout':'Expand laboratory');requestAnimationFrame(()=>world.resize());};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('details-dialog').open&&document.body.classList.contains('is-expanded'))$('expand').click();});
+$('camera-home').onclick=()=>world.home();$('camera-top').onclick=()=>world.top();$('camera-rotate').onclick=()=>world.rotate();$('camera-plus').onclick=()=>world.zoom(.8);$('camera-minus').onclick=()=>world.zoom(1.25);$('expand').onclick=()=>{const expanded=document.body.classList.toggle('is-expanded');$('expand').setAttribute('aria-pressed',String(expanded));$('expand').setAttribute('aria-label',expanded?'Return to page layout':'Expand laboratory');requestAnimationFrame(()=>world.resize());};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.querySelector('dialog[open]')&&document.body.classList.contains('is-expanded'))$('expand').click();});
 const PIN_COLORS=['#ae713f','#785f99','#307fa4','#ad557e','#708329','#7d6552','#4968a7','#9b7724'];
 function updateWeather(){const o=inputs();$('weather-reading').textContent=`Rainfall preview · ${fmt(o.rain/o.duration)} mm/h average · ${o.rain} mm over ${o.duration} h`;}
 function pin(){if(state.step!==3||!state.hydro)return;const key=JSON.stringify(state.hydro.options),existing=state.pins.find(p=>p.key===key);if(existing){existing.visible=true;renderPins();drawChart();toast('This set of inputs is already saved. Its curve is visible.');return;}const h=state.hydro,id=++state.pinSerial;
@@ -130,4 +131,7 @@ function drawChart(){const svg=$('hydrograph'),h=state.hydro;svg.replaceChildren
 }
 
 const accepted=await new ExperimentGate().request('H&H modeling · From rainfall to floodplain');
-if(!accepted)location.href='../#home';else try{world=new WatershedWorld($('world'),p=>{state.inspected=p;$('map-inspector').hidden=false;renderInspector();});$('loading').hidden=true;$('experience').inert=false;state.unlocked=1;renderPins();goStep(0);}catch(error){$('loading').innerHTML='<strong>The landscape could not start.</strong><p>Please reload in a browser with WebGL enabled.</p>';console.error(error);}
+if(!accepted)location.href='../#home';else try{world=new WatershedWorld($('world'),p=>{state.inspected=p;$('map-inspector').hidden=false;renderInspector();});$('loading').hidden=true;$('experience').inert=false;state.unlocked=1;renderPins();goStep(0);
+ const studentGuide=new StudentGuide('hh',{mount:$('workspace'),entry:$('experience'),before:$('workspace'),follow:()=>state.step});
+ const guideButton=document.createElement('button');guideButton.type='button';guideButton.textContent='Guide';guideButton.className='learn-toolbar-button';guideButton.onclick=()=>studentGuide.open();document.querySelector('.camera-tools').prepend(guideButton);
+ }catch(error){$('loading').innerHTML='<strong>The landscape could not start.</strong><p>Please reload in a browser with WebGL enabled.</p>';console.error(error);}

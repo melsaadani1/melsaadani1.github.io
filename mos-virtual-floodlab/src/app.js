@@ -1,9 +1,11 @@
+import {StudentGuide,closeStudentGuides} from './student-guide.js?v=20260928-intro2';
 import {ExperimentGate} from './experiment-gate.js?v=1.6.0';
 import {BUILDINGS,FT,createInventory,fractionAt,evaluate,money} from './data.js';
 import {FloodScene} from './scene.js?v=20260926-visual';
-import {RoadLab} from './road-app.js?v=20260926-visual';
-import {AccessibilityLab} from './access-app.js?v=1.6.2';
+import {RoadLab} from './road-app.js?v=20260928-intro2';
+import {AccessibilityLab} from './access-app.js?v=20260928-intro2';
 let accessibilityLab;
+let buildingGuide;
 
 const $=id=>document.getElementById(id);
 let config=BUILDINGS.house1,items=createInventory(config),waterM=config.ffe+FT,selected='range',category='contents',chartDollars=false,playing=false,animationLast=0,scene,toastTimer,lessonIndex=0;
@@ -210,7 +212,7 @@ function renderModule(route){
 }
 async function showModule(){
  const request=++moduleNavigation,route=requestedModule();
- experimentGate.cancel();stopPlay();
+ experimentGate.cancel();stopPlay();closeStudentGuides();
  document.querySelectorAll('dialog[open]').forEach(d=>d.close());
  const exits=[];
  if(expanded)exits.push(exitExpanded());
@@ -230,7 +232,15 @@ async function showModule(){
   return;
  }
  renderModule(route);
- if(route==='buildings'){initializeScene();requestAnimationFrame(()=>{scene?.resize();drawChart();});}
+ if(route==='buildings'){
+ initializeScene();
+ if(!buildingGuide){
+  buildingGuide=new StudentGuide('buildings',{mount:workspace,entry:$('building-module'),before:document.querySelector('.archetypes'),prepare:(i,cue)=>{stopPlay();if(cue.category)setCategory(cue.category);if(expanded)setExpandedPanel(cue.panel||'none');},extra:()=>$('lesson-open').click()});
+  // Replace the original listener so the expanded Guide opens only one guide.
+  const old=$('expanded-guide'),fresh=old.cloneNode(true);old.replaceWith(fresh);buildingGuide.toolbar(fresh);
+ }
+ requestAnimationFrame(()=>{scene?.resize();drawChart();});
+}
  if(route==='roads'){roadLab??=new RoadLab($('road-lab'));roadLab.show();}
  if(route==='accessibility'){accessibilityLab??=new AccessibilityLab($('access-lab'));accessibilityLab.show();}
  const heading=$(route==='buildings'?'building-module':route==='roads'?'road-module':'access-module').querySelector('h1');
