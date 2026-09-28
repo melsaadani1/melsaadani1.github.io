@@ -1,0 +1,1 @@
+body[data-module=home] .module-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}body:not([data-module=home]) .module-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:760px){body[data-module=home] .module-tabs{grid-template-columns:1fr}}
